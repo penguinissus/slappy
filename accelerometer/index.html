@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Accelerometer Websocket</h2>
+
+    <script>
+        let socket = new WebSocket("ws://YOUR_PC_IP:8765");
+
+        window.addEventListener("devicemotion", e => {
+            let data = {
+                ax: e.accelerationIncludingGravity.x,
+                ay: e.accelerationIncludingGravity.y,
+                az: e.accelerationIncludingGravity.z
+            };
+            socket.send(JSON.stringify(data));
+        });
+    </script>
+</body>
+</html>

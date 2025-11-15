@@ -1,8 +1,52 @@
-[gd_scene load_steps=8 format=4 uid="uid://dka1rgcna8rmw"]
+[gd_scene load_steps=9 format=4 uid="uid://dka1rgcna8rmw"]
 
 [ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://clio0nlogt8q4" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://cg5dtvx6ghri6" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dtcdkwi1l2m3g" path="res://scripts/fetus.gd" id="3_h2yge"]
+
+[sub_resource type="GDScript" id="GDScript_h2yge"]
+script/source = "extends Node
+
+var ws := WebSocketPeer.new()
+var ax = 0
+var ay = 0
+var az = 0
+
+func _ready():
+	print(\"connecting to python server\")
+	ws.connect_to_url(\"ws://localhost:8766\")
+	set_process(true)
+	
+func _process(delta:float) -> void:
+	ws.poll()
+	
+	#check connection
+	if ws.get_ready_state() != WebSocketPeer.STATE_OPEN:
+		return
+		
+	#read packets
+	while ws.get_available_packet_count() > 0:
+		var msg: String = ws.get_packet().get_string_from_utf8()
+		
+		var ok: bool
+		var data: Dictionary = {}
+
+		# JSON.parse_string returns Variant, use JSON.parse_string(msg).result directly
+		var parse_result = JSON.parse_string(msg)
+
+		if parse_result.has(\"error\") and parse_result[\"error\"] != OK:
+			print(\"JSON parse error\")
+			continue
+
+		# parse_result.result is the dictionary
+		if parse_result.has(\"result\"):
+			data = parse_result[\"result\"]
+
+		if data.has(\"phone\"):
+			ax = float(data[\"phone\"][\"ax\"])
+			ay = float(data[\"phone\"][\"ay\"])
+			az = float(data[\"phone\"][\"az\"])
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(128, 128)
@@ -144,6 +188,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ig7tw")
 
 [node name="main" type="Node"]
+script = SubResource("GDScript_h2yge")
 
 [node name="grandma" type="CharacterBody2D" parent="."]
 script = ExtResource("1_0xm2m")
