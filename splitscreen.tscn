@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq5upijym7vt3"]
+
+[ext_resource type="PackedScene" uid="uid://dka1rgcna8rmw" path="res://main.tscn" id="1_ibj7l"]
+[ext_resource type="Script" uid="uid://88ecubcf7p6d" path="res://scripts/splitscreen.gd" id="1_isxrr"]
+
+[node name="splitscreen" type="Node"]
+script = ExtResource("1_isxrr")
+
+[node name="Viewports" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewportContainer1" type="SubViewportContainer" parent="Viewports"]
+layout_mode = 2
+
+[node name="SubViewport1" type="SubViewport" parent="Viewports/SubViewportContainer1"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Viewports/SubViewportContainer1/SubViewport1"]
+
+[node name="main" parent="Viewports/SubViewportContainer1/SubViewport1" instance=ExtResource("1_ibj7l")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Viewports"]
+layout_mode = 2
+
+[node name="SubViewport2" type="SubViewport" parent="Viewports/SubViewportContainer2"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Viewports/SubViewportContainer2/SubViewport2"]
