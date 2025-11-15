@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://dka1rgcna8rmw"]
+[gd_scene load_steps=8 format=4 uid="uid://dka1rgcna8rmw"]
 
+[ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://clio0nlogt8q4" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dtcdkwi1l2m3g" path="res://scripts/fetus.gd" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(128, 128)
@@ -144,6 +146,7 @@ sources/0 = SubResource("TileSetAtlasSource_ig7tw")
 [node name="main" type="Node"]
 
 [node name="grandma" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="grandma"]
 texture = ExtResource("1_ig7tw")
@@ -152,6 +155,7 @@ texture = ExtResource("1_ig7tw")
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="fetus" type="CharacterBody2D" parent="."]
+script = ExtResource("3_h2yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="fetus"]
 position = Vector2(224, 51)
