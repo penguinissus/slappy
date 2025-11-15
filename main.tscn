@@ -154,16 +154,18 @@ texture = ExtResource("1_ig7tw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grandma"]
 shape = SubResource("RectangleShape2D_0xm2m")
 
+[node name="Camera2D" type="Camera2D" parent="grandma"]
+position = Vector2(0, 1)
+
 [node name="fetus" type="CharacterBody2D" parent="."]
+position = Vector2(139, 23)
 script = ExtResource("3_h2yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="fetus"]
-position = Vector2(224, 51)
 scale = Vector2(0.398438, 0.398438)
 texture = ExtResource("1_ig7tw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fetus"]
-position = Vector2(224, 50.5)
 shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
