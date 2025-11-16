@@ -24,20 +24,8 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		_crawl_animation.stop()
 
-=======
-		
->>>>>>> Stashed changes
-=======
-		
->>>>>>> Stashed changes
-=======
-		
->>>>>>> Stashed changes
+		_crawl_animation.stop()
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
