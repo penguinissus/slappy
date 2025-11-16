@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mmlamf2cdltt"]
+[gd_scene load_steps=7 format=3 uid="uid://c07lip0redxrk"]
 
 [sub_resource type="GDScript" id="GDScript_sd88y"]
 script/source = "extends Node3D
@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	print('should respawn')
 	get_tree().reload_current_scene()
+#press enter to respawn
 "
 
 [sub_resource type="GDScript" id="GDScript_cxnbf"]
