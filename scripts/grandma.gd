@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @onready var collider = $Area2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 500.0
+const JUMP_VELOCITY = -1000.0
 
 func _ready() -> void:
 	add_to_group("player")

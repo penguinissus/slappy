@@ -1,5 +1,5 @@
 extends Camera2D
-#
+#OLD CAMERA THING, IDK IF YOU STILL WANT IT
 @export var maxZoom = 3.0
 @export var minZoom = 0.3
 #

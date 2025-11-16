@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var _crawl_animation = $AnimatedSprite2D
-const SPEED = 500.0
+const SPEED = 700.0
 const JUMP_VELOCITY = -900.0
 
 func _ready() -> void:
