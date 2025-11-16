@@ -15,37 +15,14 @@ func _ready():
 	var exit_code = OS.execute(\"/home/sophia/Documents/Projects/GitHub/slappy/venv/bin/python\", [\"/home/sophia/Documents/Projects/GitHub/slappy/scripts/pythonscript/main.py\"], output, true,true)
 	
 	#print(output)[0]
-	var data=output[0]
 	#print(data)
-	test = JSON.stringify(data)
-	#print(test)
-	#jocelyn's attempt
-	var nums = []
-	#while can't find square brackets
-	while !(_search_square_bracket(prev_bracket)==-1):
-		#loop through three nums
-		for i in 3: 
-			#handling num directly after square bracket
-			if i == 1:
-				nums.append(abs(test.substr(_search_square_bracket(prev_bracket) + 1, _search_comma(prev_comma) - _search_square_bracket(prev_bracket) - 1).to_int()))
-				prev_bracket = _search_square_bracket(prev_bracket)
-			elif i == 2:
-				var current_comma = _search_comma(prev_comma)
-				nums.append(abs(test.substr(_search_comma(prev_comma), _search_comma(current_comma) - _search_comma(prev_comma)).to_int()))
-				prev_comma = _search_comma(prev_comma)
-			else:
-				nums.append(abs(test.substr(_search_comma(prev_comma), _search_reverse_bracket(prev_close_bracket) - _search_comma(prev_comma)).to_int()))
-				prev_close_bracket = _search_reverse_bracket(prev_close_bracket)
-	
-	var largest = 0
-	for i in nums.size():
-		var squareSum = 0
-		if i%3 == 0:
-			for j in 3:
-				squareSum += pow(nums[i+j], 2)
-			if squareSum > largest:
-				largest = squareSum
-		
+	test = JSON.stringify(output)
+	var index = test.find(\"###\")
+	test = test.substr(0, index-2)
+	index = -1
+	while (test.find(\"\\\\n\") != -1):
+		test = test.substr(test.find(\"\\\\n\")+2, test.length())
+	print(test)
 	#linqi's attempt
 	#for i in range(0, len(test)):
 		#if test[i] == \"[\":
@@ -90,15 +67,7 @@ func _ready():
 		#print(data[\"values\"])
 		#count+=1
 			
-	print(\"Exit code:\", exit_code)
-	print(largest)
-
-func _search_square_bracket(limit):
-	return test.find(\"[\", limit)
-func _search_comma(limit):
-	return test.find(\",\", limit)
-func _search_reverse_bracket(limit):
-	return test.find(\"]\", limit)
+	#print(\"Exit code:\", exit_code)
 "
 
 [node name="Node2D" type="Node2D"]

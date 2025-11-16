@@ -5,11 +5,25 @@
 import websocket
 import time
 import threading
+import math
+
+biggest = 0.0
+
 def on_message(ws, message):
-    print(message) # sensor data here in JSON format
+    global biggest
+    #print(message) # sensor data here in JSON format
     openBracket = message.find("[")
     closeBracket = message.find("]")
-    print(str(openBracket) + " " + str(closeBracket))
+    newMessage = message[openBracket+1: closeBracket]
+    firstComma = newMessage.find(",")
+    secondComma = newMessage.find(",", firstComma + 1)
+    num1 = float(newMessage[0 : firstComma])
+    num2 = float(newMessage[(firstComma + 1) : secondComma])
+    num3 = float(newMessage[(secondComma + 1) :])
+    total = math.sqrt(pow(num1, 2) + pow(num2, 2) + pow(num3, 2))
+    if(total > biggest):
+        biggest = total
+    print(biggest)
 
 def on_error(ws, error):
     print("### error ###")
