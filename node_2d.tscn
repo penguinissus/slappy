@@ -3,16 +3,102 @@
 [sub_resource type="GDScript" id="GDScript_y32ns"]
 script/source = "extends Node2D
 
+var test = \"\"
+var prev_bracket = 0
+var prev_comma = 0
+var prev_close_bracket = 0
+
 func _ready():
 	print('wtf')
 	print(\"poo\")
-	#var output = []
-	#var exit_code = OS.execute(\"/home/sophia/Documents/Projects/GitHub/slappy/venv/bin/python\", [\"scripts/main.py\"], output, true,true)
-	#print(\"Exit code:\", exit_code)
-	#print(\"Output:\", output)
-	print(\"poo\")
-
+	var output = []
+	var exit_code = OS.execute(\"/home/sophia/Documents/Projects/GitHub/slappy/venv/bin/python\", [\"/home/sophia/Documents/Projects/GitHub/slappy/scripts/pythonscript/main.py\"], output, true,true)
 	
+	#print(output)[0]
+	var data=output[0]
+	#print(data)
+	test = JSON.stringify(data)
+	#print(test)
+	#jocelyn's attempt
+	var nums = []
+	#while can't find square brackets
+	while !(_search_square_bracket(prev_bracket)==-1):
+		#loop through three nums
+		for i in 3: 
+			#handling num directly after square bracket
+			if i == 1:
+				nums.append(abs(test.substr(_search_square_bracket(prev_bracket) + 1, _search_comma(prev_comma) - _search_square_bracket(prev_bracket) - 1).to_int()))
+				prev_bracket = _search_square_bracket(prev_bracket)
+			elif i == 2:
+				var current_comma = _search_comma(prev_comma)
+				nums.append(abs(test.substr(_search_comma(prev_comma), _search_comma(current_comma) - _search_comma(prev_comma)).to_int()))
+				prev_comma = _search_comma(prev_comma)
+			else:
+				nums.append(abs(test.substr(_search_comma(prev_comma), _search_reverse_bracket(prev_close_bracket) - _search_comma(prev_comma)).to_int()))
+				prev_close_bracket = _search_reverse_bracket(prev_close_bracket)
+	
+	var largest = 0
+	for i in nums.size():
+		var squareSum = 0
+		if i%3 == 0:
+			for j in 3:
+				squareSum += pow(nums[i+j], 2)
+			if squareSum > largest:
+				largest = squareSum
+		
+	#linqi's attempt
+	#for i in range(0, len(test)):
+		#if test[i] == \"[\":
+			#while test[i] == \"-\" or test[i].is_valid_integer() or test[i] == \".\":
+				#x += test[i]
+				#if test[i] == \",\":
+					#print(\"x: \" + x)
+					#x = \"\"
+					#while test[i] == \"-\" or test[i].is_value_integer() or test[i] == \".\":
+						#y += test[i]
+						#if test[i] == \",\":
+							#print(\"y: \" + y)
+							#y = \"\"
+							#while test[i] == \"-\" or test[i].is_valid_integer() or test[i] == \".\":
+								#z += test[i]
+								#if test[i] == \",\":
+									#print(\"z: \" + z)
+									#z = \"\"
+									#break
+							
+						
+					
+				
+			
+			
+	#print(test)
+	#var x = test.get(\"values\")
+	#print(x)
+	
+	#var count = 1
+	#print(data)
+	#var wtf = [data]
+	#
+	#for i in wtf:
+#ob		print(wtf[\"values\"])
+	
+	
+	#for i in data:
+		#print(i)
+		#print(data[\"values\"])
+		#print(count)
+		#print(data[\"values\"])
+		#count+=1
+			
+	print(\"Exit code:\", exit_code)
+	print(largest)
+
+func _search_square_bracket(limit):
+	return test.find(\"[\", limit)
+func _search_comma(limit):
+	return test.find(\",\", limit)
+func _search_reverse_bracket(limit):
+	return test.find(\"]\", limit)
 "
 
 [node name="Node2D" type="Node2D"]

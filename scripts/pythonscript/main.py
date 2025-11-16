@@ -7,6 +7,9 @@ import time
 import threading
 def on_message(ws, message):
     print(message) # sensor data here in JSON format
+    openBracket = message.find("[")
+    closeBracket = message.find("]")
+    print(str(openBracket) + " " + str(closeBracket))
 
 def on_error(ws, error):
     print("### error ###")
