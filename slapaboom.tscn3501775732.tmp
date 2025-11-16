@@ -34,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 		print('yay')
 			
 			#apply_impulse(Vector3.ZERO, theimpulse)
-		apply_impulse(Vector3(1,1,0) * throwforce * 0.5)
+			apply_impulse(Vector3(1,1,0) * throwforce * 0.5)
 
 	elif throwforce == null:
 		print('god null')
