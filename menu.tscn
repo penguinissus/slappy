@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://5exhrdlguufp"]
+
+[ext_resource type="Script" uid="uid://btbktxvpgxvds" path="res://button.gd" id="1_lti8b"]
+
+[node name="menu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 149.0
+offset_right = 882.0
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 100
+text = "Yeetus Fetus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 308.0
+offset_right = 757.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+script = ExtResource("1_lti8b")
+
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="CanvasLayer/Panel/Button" method="_on_pressed"]
