@@ -1,19 +1,19 @@
-[gd_scene load_steps=49 format=4 uid="uid://mc7dfb2r0e8u"]
+[gd_scene load_steps=37 format=4 uid="uid://mc7dfb2r0e8u"]
 
 [ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="1_8lg85"]
 [ext_resource type="Texture2D" uid="uid://cg5dtvx6ghri6" path="res://icon.svg" id="2_p6bij"]
 [ext_resource type="Script" uid="uid://dtcdkwi1l2m3g" path="res://scripts/fetus.gd" id="3_bnb1j"]
 [ext_resource type="Texture2D" uid="uid://bquowx6g7mvbc" path="res://images/GrandmaWalk.png" id="3_m2kfl"]
-[ext_resource type="Texture2D" uid="uid://28kwsc542m1e" path="res://images/GrannyHit.png" id="4_0svwh"]
 [ext_resource type="Texture2D" uid="uid://c7klya3x1w14c" path="res://images/Fetus_Crawl.png" id="4_m2kfl"]
 [ext_resource type="Texture2D" uid="uid://dolxkwpkexsye" path="res://images/Fetus_Scoop.png" id="5_0svwh"]
-[ext_resource type="Texture2D" uid="uid://ss7ctepvutav" path="res://images/GrannyIdle.png" id="5_m2kfl"]
 [ext_resource type="Script" uid="uid://cibyhpxmgtl2g" path="res://scripts/camera_2d.gd" id="6_g08jk"]
 [ext_resource type="Texture2D" uid="uid://cfx6raqcqwcx2" path="res://images/BathroomTiles.png" id="7_recug"]
 [ext_resource type="AudioStream" uid="uid://cyetlbngluy1w" path="res://An Object at Rest Jazz.mp3" id="8_xiipp"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p6bij"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(165, 367.5)
+size = Vector2(220, 273)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g08jk"]
 atlas = ExtResource("3_m2kfl")
@@ -52,85 +52,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lyhlk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tg1hp"]
-atlas = ExtResource("4_0svwh")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7efp"]
-atlas = ExtResource("4_0svwh")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqpoo"]
-atlas = ExtResource("4_0svwh")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_emheb"]
-atlas = ExtResource("4_0svwh")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e8nbv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tg1hp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v7efp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xqpoo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_emheb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0svwh"]
-atlas = ExtResource("5_m2kfl")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hv8j2"]
-atlas = ExtResource("5_m2kfl")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8nbv"]
-atlas = ExtResource("5_m2kfl")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mq0d"]
-atlas = ExtResource("5_m2kfl")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jso38"]
-atlas = ExtResource("5_m2kfl")
-region = Rect2(384, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0cmkx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0svwh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hv8j2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8nbv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mq0d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jso38")
 }],
 "loop": true,
 "name": &"default",
@@ -259,7 +180,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io7nm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6bij"]
 texture = ExtResource("7_recug")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -336,44 +257,36 @@ texture = ExtResource("7_recug")
 
 [sub_resource type="TileSet" id="TileSet_umuc8"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_io7nm")
+sources/0 = SubResource("TileSetAtlasSource_p6bij")
 
 [node name="main" type="Node"]
 
 [node name="grandma" type="CharacterBody2D" parent="."]
-position = Vector2(-760, 680)
+position = Vector2(-757, 626)
 script = ExtResource("1_8lg85")
 
 [node name="Sprite2D" type="Sprite2D" parent="grandma"]
+visible = false
 position = Vector2(62.5, -119.5)
 scale = Vector2(1.28906, 2.86719)
-texture = ExtResource("2_p6bij")
+texture = SubResource("CompressedTexture2D_p6bij")
 
 [node name="Area2D" type="Area2D" parent="grandma"]
 position = Vector2(61, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grandma/Area2D"]
-position = Vector2(0, -19)
-shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="grandma"]
-position = Vector2(61, -119)
+position = Vector2(19.25, 5.5)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="walkani" type="AnimatedSprite2D" parent="grandma"]
 position = Vector2(65, -76)
 scale = Vector2(3.4375, 3.4375)
 sprite_frames = SubResource("SpriteFrames_hv8j2")
-frame = 2
-frame_progress = 0.4443197
+frame_progress = 0.51813936
 
-[node name="slapani" type="AnimatedSprite2D" parent="grandma"]
-position = Vector2(59.99998, -79.00002)
-scale = Vector2(3.619791, 3.619791)
-sprite_frames = SubResource("SpriteFrames_e8nbv")
-
-[node name="idle" type="AnimatedSprite2D" parent="grandma"]
-sprite_frames = SubResource("SpriteFrames_0cmkx")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="grandma"]
+position = Vector2(72, -94.5)
+shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="fetus" type="CharacterBody2D" parent="."]
 position = Vector2(564, -14)
