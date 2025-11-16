@@ -1,12 +1,12 @@
-[gd_scene load_steps=28 format=4 uid="uid://b2niwuwwxybwq"]
+[gd_scene load_steps=28 format=4 uid="uid://dpcdk614p1037"]
 
-[ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="2_umuc8"]
-[ext_resource type="Texture2D" uid="uid://cg5dtvx6ghri6" path="res://icon.svg" id="3_vmj1s"]
-[ext_resource type="Script" uid="uid://dtcdkwi1l2m3g" path="res://scripts/fetus.gd" id="4_bq0w0"]
-[ext_resource type="Texture2D" uid="uid://c7klya3x1w14c" path="res://images/Fetus_Crawl.png" id="5_th0si"]
-[ext_resource type="Texture2D" uid="uid://dolxkwpkexsye" path="res://images/Fetus_Scoop.png" id="6_ud5xd"]
-[ext_resource type="Texture2D" uid="uid://cfx6raqcqwcx2" path="res://images/BathroomTiles.png" id="7_uf0y7"]
-[ext_resource type="Script" uid="uid://cibyhpxmgtl2g" path="res://scripts/camera_2d.gd" id="8_bj3h7"]
+[ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="1_cogvo"]
+[ext_resource type="Texture2D" uid="uid://cg5dtvx6ghri6" path="res://icon.svg" id="2_s87pw"]
+[ext_resource type="Script" uid="uid://dtcdkwi1l2m3g" path="res://scripts/fetus.gd" id="3_1tmc7"]
+[ext_resource type="Texture2D" uid="uid://c7klya3x1w14c" path="res://images/Fetus_Crawl.png" id="4_66gyr"]
+[ext_resource type="Texture2D" uid="uid://dolxkwpkexsye" path="res://images/Fetus_Scoop.png" id="5_k1fmr"]
+[ext_resource type="Script" uid="uid://cibyhpxmgtl2g" path="res://scripts/camera_2d.gd" id="6_tc02c"]
+[ext_resource type="Texture2D" uid="uid://cfx6raqcqwcx2" path="res://images/BathroomTiles.png" id="7_srbei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(165, 367.5)
@@ -15,27 +15,27 @@ size = Vector2(165, 367.5)
 size = Vector2(168, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = ExtResource("5_th0si")
+atlas = ExtResource("4_66gyr")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
-atlas = ExtResource("5_th0si")
+atlas = ExtResource("4_66gyr")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
-atlas = ExtResource("5_th0si")
+atlas = ExtResource("4_66gyr")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
-atlas = ExtResource("5_th0si")
+atlas = ExtResource("4_66gyr")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
-atlas = ExtResource("5_th0si")
+atlas = ExtResource("4_66gyr")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycdy4"]
-atlas = ExtResource("5_th0si")
+atlas = ExtResource("4_66gyr")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w48qg"]
@@ -70,35 +70,35 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_074og"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cegan"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82xsv"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_getpj"]
-atlas = ExtResource("6_ud5xd")
+atlas = ExtResource("5_k1fmr")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ryguw"]
@@ -134,7 +134,7 @@ animations = [{
 }]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io7nm"]
-texture = ExtResource("7_uf0y7")
+texture = ExtResource("7_srbei")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -216,12 +216,12 @@ sources/0 = SubResource("TileSetAtlasSource_io7nm")
 
 [node name="grandma" type="CharacterBody2D" parent="."]
 position = Vector2(-314, -12)
-script = ExtResource("2_umuc8")
+script = ExtResource("1_cogvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="grandma"]
 position = Vector2(62.5, -119.5)
 scale = Vector2(1.28906, 2.86719)
-texture = ExtResource("3_vmj1s")
+texture = ExtResource("2_s87pw")
 
 [node name="Area2D" type="Area2D" parent="grandma"]
 position = Vector2(61, -100)
@@ -236,12 +236,12 @@ shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="fetus" type="CharacterBody2D" parent="."]
 position = Vector2(564, -14)
-script = ExtResource("4_bq0w0")
+script = ExtResource("3_1tmc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="fetus"]
 visible = false
 scale = Vector2(0.398438, 0.398438)
-texture = ExtResource("3_vmj1s")
+texture = ExtResource("2_s87pw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fetus"]
 position = Vector2(-232, 118)
@@ -272,7 +272,7 @@ shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(35, -4)
-script = ExtResource("8_bj3h7")
+script = ExtResource("6_tc02c")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 process_physics_priority = 1
