@@ -22,12 +22,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 		_crawl_animation.play()
 		
-	#if Input.gets("fetus_left"):
-		#velocity.x =  speed
-		#_crawl_animation.play()
-
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		_crawl_animation.stop()
 
 	move_and_slide()
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print('help')
+	get_tree().change_scene_to_file("res://menu.tscn")
