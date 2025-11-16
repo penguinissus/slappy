@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c07lip0redxrk"]
+[gd_scene load_steps=8 format=3 uid="uid://c07lip0redxrk"]
 
 [sub_resource type="GDScript" id="GDScript_sd88y"]
 script/source = "extends Node3D
 @onready var timer: Timer =$Timer
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed('replay'):
 			$Timer.start()
 			
@@ -19,10 +19,28 @@ func _on_timer_timeout() -> void:
 [sub_resource type="GDScript" id="GDScript_cxnbf"]
 script/source = "extends RigidBody3D
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed('launch'):
-		print('yay')
-		apply_impulse(Vector3(1,0.25,0) * 20)
+var throwforce =10
+	
+func _physics_process(_delta: float) -> void:
+	var throwforceNode  = get_node('../Node')
+	throwforce = float(throwforceNode.test)
+	#print(throwforce)
+	if throwforce > 0.0:
+		#print(throwforce)
+		if Input.is_action_just_pressed('launch'):
+			print('yay')
+			
+			#apply_impulse(Vector3.ZERO, theimpulse)r
+			apply_impulse(Vector3(1,1,0) * throwforce)
+
+	elif throwforce == null:
+		print('god null')
+	elif throwforce <= 0:
+		print('god adljkasldasjd')
+	else:
+		print('huh')
+	
+ 
 "
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sd88y"]
@@ -33,6 +51,32 @@ func _physics_process(delta: float) -> void:
 size = Vector3(6.14508, 1, 1.70996)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cxnbf"]
+
+[sub_resource type="GDScript" id="GDScript_1lg40"]
+resource_name = "pleasework"
+script/source = "extends Node
+
+var test = \"\"
+var prev_bracket = 0
+var prev_comma = 0
+var prev_close_bracket = 0
+
+func _ready():
+	#print('wtf')
+	#print(\"poo\")
+	var output = []
+	var _exit_code = OS.execute(\"/home/sophia/Documents/Projects/GitHub/slappy/venv/bin/python\", [\"/home/sophia/Documents/Projects/GitHub/slappy/scripts/pythonscript/main.py\"], output, true,true)
+	
+	#print(output)[0]
+	#print(data)
+	test = JSON.stringify(output)
+	var index = test.find(\"###\")
+	test = test.substr(0, index-2)
+	index = -1
+	while (test.find(\"\\\\n\") != -1):
+		test = test.substr(test.find(\"\\\\n\")+2, test.length())
+	#print(test)
+"
 
 [node name="Node3D2" type="Node3D"]
 script = SubResource("GDScript_sd88y")
@@ -66,5 +110,8 @@ mesh = SubResource("PlaneMesh_cxnbf")
 process_callback = 0
 wait_time = 0.657
 one_shot = true
+
+[node name="Node" type="Node" parent="."]
+script = SubResource("GDScript_1lg40")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
