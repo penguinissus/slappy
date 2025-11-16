@@ -49,5 +49,5 @@ if __name__ == "__main__":
         on_error=on_error,
         on_close=on_close)
     
-    threading.Thread(target=stopafter, args=(ws, 4)).start()
+    threading.Thread(target=stopafter, args=(ws, 5)).start()
     ws.run_forever()

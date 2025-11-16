@@ -26,17 +26,19 @@ func _physics_process(_delta: float) -> void:
 	throwforce = float(throwforceNode.test)
 	#print(throwforce)
 	if throwforce > 0.0:
-		#print(throwforce)
+		print(throwforce)
 		if Input.is_action_just_pressed('launch'):
 			print('yay')
 			
-			#apply_impulse(Vector3.ZERO, theimpulse)r
-			apply_impulse(Vector3(1,1,0) * throwforce)
+			#apply_impulse(Vector3.ZERO, theimpulse)
+			apply_impulse(Vector3(1,1,0) * throwforce * 0.5)
 
 	elif throwforce == null:
 		print('god null')
 	elif throwforce <= 0:
 		print('god adljkasldasjd')
+		apply_impulse(Vector3(1,1,0) * throwforce)
+
 	else:
 		print('huh')
 	
@@ -62,13 +64,15 @@ var prev_comma = 0
 var prev_close_bracket = 0
 
 func _ready():
-	#print('wtf')
-	#print(\"poo\")
+	call_deferred(\"_run_when_visible\")
+	
+func _run_when_visible():
+	print('um its displayednow')
+	run_ts()
+		
+func run_ts():
 	var output = []
 	var _exit_code = OS.execute(\"/home/sophia/Documents/Projects/GitHub/slappy/venv/bin/python\", [\"/home/sophia/Documents/Projects/GitHub/slappy/scripts/pythonscript/main.py\"], output, true,true)
-	
-	#print(output)[0]
-	#print(data)
 	test = JSON.stringify(output)
 	var index = test.find(\"###\")
 	test = test.substr(0, index-2)
