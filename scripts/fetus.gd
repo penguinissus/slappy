@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var _crawl_animation = $AnimatedSprite2D
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 500.0
+const JUMP_VELOCITY = -900.0
 
 func _ready() -> void:
 	add_to_group("player")
@@ -21,6 +21,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		_crawl_animation.play()
+		
+	#if Input.gets("fetus_left"):
+		#velocity.x =  speed
+		#_crawl_animation.play()
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
