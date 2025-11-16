@@ -265,5 +265,5 @@ tile_map_data = PackedByteArray("AAALAAoAAAADAAAAAAALAAsAAAADAAEAAAAMAAoAAAACAAA
 tile_set = SubResource("TileSet_272bh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(279, 6)
+position = Vector2(-240, -117)
 script = ExtResource("6_7mycd")
