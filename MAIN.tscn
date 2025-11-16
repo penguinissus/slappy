@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dxs2fj5bisuid"]
+[gd_scene load_steps=36 format=4 uid="uid://dxs2fj5bisuid"]
 
 [ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cg5dtvx6ghri6" path="res://icon.svg" id="1_ig7tw"]
@@ -7,11 +7,58 @@
 [ext_resource type="Texture2D" uid="uid://cfx6raqcqwcx2" path="res://images/BathroomTiles.png" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dolxkwpkexsye" path="res://images/Fetus_Scoop.png" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://cibyhpxmgtl2g" path="res://scripts/camera_2d.gd" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://bquowx6g7mvbc" path="res://images/GrandmaWalk.png" id="9_5nrqa"]
 
 [sub_resource type="GDScript" id="GDScript_272bh"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyt76"]
+atlas = ExtResource("9_5nrqa")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm6fk"]
+atlas = ExtResource("9_5nrqa")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nrqa"]
+atlas = ExtResource("9_5nrqa")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ct82"]
+atlas = ExtResource("9_5nrqa")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s83dy"]
+atlas = ExtResource("9_5nrqa")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2cot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyt76")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm6fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nrqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ct82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s83dy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(165, 367.5)
+size = Vector2(217, 347.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(166, 110)
@@ -214,20 +261,20 @@ texture = ExtResource("5_lquwl")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7mycd")
 
-[node name="main2" type="Node"]
+[node name="main3" type="Node"]
 script = SubResource("GDScript_272bh")
 
 [node name="grandma" type="CharacterBody2D" parent="."]
 position = Vector2(-314, -12)
 script = ExtResource("1_0xm2m")
 
-[node name="Sprite2D" type="Sprite2D" parent="grandma"]
-position = Vector2(62.5, -119.5)
-scale = Vector2(1.28906, 2.86719)
-texture = ExtResource("1_ig7tw")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="grandma"]
+position = Vector2(56, -92)
+scale = Vector2(2.98438, 4.17708)
+sprite_frames = SubResource("SpriteFrames_h2cot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grandma"]
-position = Vector2(61, -119)
+position = Vector2(59.5, -109.125)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="fetus" type="CharacterBody2D" parent="."]

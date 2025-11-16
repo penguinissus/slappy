@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@onready var _float_animation = $walkani
-@onready var sprite = $walkani
+@onready var _float_animation = $AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D
 @onready var collider = $Area2D
 
 const SPEED = 500.0
@@ -22,8 +22,9 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("grandma_left", "grandma_right")
 	if direction:
 		velocity.x = direction * SPEED
-		#sprite.scale.x = sign(direction) 		#sprite.scale.x = sign(direction) 
-
+		#sprite.scale.x = sign(direction)
+		#sprite.scale.x = sign(direction)
+		sprite.flip_h = direction > 0
 		_float_animation.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
