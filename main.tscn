@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7klya3x1w14c" path="res://images/Fetus_Crawl.png" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://cfx6raqcqwcx2" path="res://images/BathroomTiles.png" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dolxkwpkexsye" path="res://images/Fetus_Scoop.png" id="6_5vw27"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cibyhpxmgtl2g" path="res://scripts/camera_2d.gd" id="6_7mycd"]
 
 [sub_resource type="GDScript" id="GDScript_272bh"]
 
@@ -214,7 +214,7 @@ texture = ExtResource("5_lquwl")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7mycd")
 
-[node name="main" type="Node"]
+[node name="main2" type="Node"]
 script = SubResource("GDScript_272bh")
 
 [node name="grandma" type="CharacterBody2D" parent="."]
