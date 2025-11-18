@@ -14,11 +14,9 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("fetus_left", "fetus_right")
 	if direction:
 		velocity.x = direction * SPEED
+		if direction != 0:
+			$fetusCrawl.flip_h = (direction == 1)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if collision.get_collider().name == "grandma":
-			get_tree().change_scene_to_file("res://slapaboom.tscn")

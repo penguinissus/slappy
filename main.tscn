@@ -296,10 +296,10 @@ script = SubResource("GDScript_272bh")
 position = Vector2(-573, 165)
 script = ExtResource("1_0xm2m")
 
-[node name="grandma-idle" type="AnimatedSprite2D" parent="grandma"]
+[node name="grandmaIdle" type="AnimatedSprite2D" parent="grandma"]
 sprite_frames = SubResource("SpriteFrames_xm6fk")
 
-[node name="grandma-hit" type="AnimatedSprite2D" parent="grandma"]
+[node name="grandmaHit" type="AnimatedSprite2D" parent="grandma"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_h2cot")
 
@@ -311,10 +311,10 @@ shape = SubResource("RectangleShape2D_5nrqa")
 position = Vector2(-40, 183)
 script = ExtResource("3_h2yge")
 
-[node name="fetus-crawl" type="AnimatedSprite2D" parent="fetus"]
+[node name="fetusCrawl" type="AnimatedSprite2D" parent="fetus"]
 sprite_frames = SubResource("SpriteFrames_g514o")
 
-[node name="fetus-scoop" type="AnimatedSprite2D" parent="fetus"]
+[node name="fetusScoop" type="AnimatedSprite2D" parent="fetus"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_hhat6")
 

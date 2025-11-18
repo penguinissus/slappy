@@ -14,7 +14,13 @@ func _physics_process(delta: float) -> void: #delta = time since the last frame
 	var direction := Input.get_axis("grandma_left", "grandma_right")
 	if direction: #right returns 1, left returns -1
 		velocity.x = direction * SPEED
+		if direction != 0:
+			$grandmaIdle.flip_h = (direction == 1)
 	else: 
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide() #applies all of this to player
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().name == "fetus":
+			get_tree().change_scene_to_file("res://slapaboom.tscn")
