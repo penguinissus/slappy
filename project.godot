@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="oop"
-run/main_scene="uid://cmwmp6ti47pkq"
+run/main_scene="uid://dxs2fj5bisuid"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

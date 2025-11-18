@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://c07lip0redxrk"]
+
+[ext_resource type="PackedScene" uid="uid://bfnj5x1wg2e2j" path="res://low_poly_little_baby.glb" id="1_lx1kc"]
+
+[sub_resource type="GDScript" id="GDScript_sd88y"]
+script/source = "extends Node3D
+#@onready var timer: Timer =$Timer
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed('replay'):
+		get_tree().reload_current_scene()
+
+			#$Timer.start()
+			
+			
+
+
+#func _on_timer_timeout() -> void:
+	#print('should respawn')
+	#get_tree().reload_current_scene()
+#press enter to respawn
+"
+
+[sub_resource type="GDScript" id="GDScript_cxnbf"]
+script/source = "extends RigidBody3D
+
+var throwforce =10
+	
+func _physics_process(_delta: float) -> void:
+	var throwforceNode  = get_node('../Node')
+	throwforce = float(throwforceNode.test)
+	
+	
+	if throwforce > 0.0:
+		print(throwforce)
+		print('yay')
+			
+			#apply_impulse(Vector3.ZERO, theimpulse)
+		apply_impulse(Vector3(1,1,0) * throwforce * 0.5)
+
+	elif throwforce == null:
+		print('god null')
+	elif throwforce <= 0:
+		if Input.is_action_just_pressed('launch'):
+			print('god adljkasldasjd')
+			apply_impulse(Vector3(1,1,0))
+
+	else:
+		print('huh')
+	
+ 
+"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sd88y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s5qhc"]
+radius = 0.32943
+height = 0.936353
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxnbf"]
+size = Vector3(6.14508, 1, 1.70996)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cxnbf"]
+
+[sub_resource type="GDScript" id="GDScript_1lg40"]
+resource_name = "pleasework"
+script/source = "extends Node
+
+var test = \"\"
+var prev_bracket = 0
+var prev_comma = 0
+var prev_close_bracket = 0
+
+func _ready():
+	call_deferred(\"_run_when_visible\")
+	
+func _run_when_visible():
+	print('um its displayednow')
+	run_ts()
+		
+func run_ts():
+	print(\"pp\")
+	var output = []
+	var _exit_code = OS.execute(\"/Users/Jocelyn/Documents/Godot/slappy/venv/bin/python\", [\"/Users/Jocelyn/Documents/Godot/slappy/scripts/pythonscript/main.py\"], output, true,true)
+	test = JSON.stringify(output)
+	var index = test.find(\"###\")
+	test = test.substr(0, index-2)
+	index = -1
+	while (test.find(\"\\\\n\") != -1):
+		test = test.substr(test.find(\"\\\\n\")+2, test.length())
+	print(test)
+"
+
+[node name="Node3D2" type="Node3D"]
+script = SubResource("GDScript_sd88y")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.42582, 0)
+script = SubResource("GDScript_cxnbf")
+
+[node name="Sketchfab_Scene" parent="RigidBody3D" instance=ExtResource("1_lx1kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.57885, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D"]
+visible = false
+mesh = SubResource("CapsuleMesh_sd88y")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0119672, -5.1296, -0.223976)
+shape = SubResource("CapsuleShape3D_s5qhc")
+
+[node name="s" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0681908, 2.49484, 7.06001)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0154724, 0, -0.00757736)
+shape = SubResource("BoxShape3D_cxnbf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(3.06393, 0, 0, 0, 1, 0, 0, 0, 2.65734, 0, 0, 0)
+mesh = SubResource("PlaneMesh_cxnbf")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.657
+one_shot = true
+
+[node name="Node" type="Node" parent="."]
+script = SubResource("GDScript_1lg40")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

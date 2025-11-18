@@ -28,7 +28,8 @@ var throwforce =10
 func _physics_process(_delta: float) -> void:
 	var throwforceNode  = get_node('../Node')
 	throwforce = float(throwforceNode.test)
-	#print(throwforce)
+	
+	
 	if throwforce > 0.0:
 		print(throwforce)
 		print('yay')
@@ -78,14 +79,21 @@ func _run_when_visible():
 		
 func run_ts():
 	var output = []
-	var _exit_code = OS.execute(\"/home/sophia/Documents/Projects/GitHub/slappy/venv/bin/python\", [\"/home/sophia/Documents/Projects/GitHub/slappy/scripts/pythonscript/main.py\"], output, true,true)
+	var _exit_code = OS.execute(\"python\", [\"scripts/pythonscript/main.py\"], output, true,true)
+	print(output)
 	test = JSON.stringify(output)
 	var index = test.find(\"###\")
 	test = test.substr(0, index-2)
 	index = -1
 	while (test.find(\"\\\\n\") != -1):
 		test = test.substr(test.find(\"\\\\n\")+2, test.length())
-	#print(test)
+	if test == null:
+		print('frick')
+	elif test == str(0):
+		print(\"zero\")
+	elif test == \"\":
+		print(\"empty\")
+	print(test)
 "
 
 [node name="Node3D2" type="Node3D"]

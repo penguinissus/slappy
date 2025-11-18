@@ -31,6 +31,9 @@ func _physics_process(delta: float) -> void:
 		_crawl_animation.stop()
 	move_and_slide()
 
+
+
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print('help')
+	print("yes")
 	get_tree().change_scene_to_file("res://slapaboom.tscn")
