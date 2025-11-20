@@ -22,5 +22,14 @@ func _physics_process(delta: float) -> void: #delta = time since the last frame
 	move_and_slide() #applies all of this to player
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().name == "fetus":
+		var collider = collision.get_collider()
+		#end game
+		if collider.name == "fetus":
 			get_tree().change_scene_to_file("res://slapaboom.tscn")
+		# open door
+		if collider.name == "doorLeft":
+			collider.get_node("doorLeftSprite").set_frame(1)
+			collider.get_node("doorLeftCollision").disable = true
+		if collider.name == "doorRight":
+			collider.get_node("doorRightSprite").set_frame(1)
+			collider.get_node("doorRightCollision").disable = true
