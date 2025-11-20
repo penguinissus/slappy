@@ -27,9 +27,9 @@ func _physics_process(delta: float) -> void: #delta = time since the last frame
 		if collider.name == "fetus":
 			get_tree().change_scene_to_file("res://slapaboom.tscn")
 		# open door
-		if collider.name == "doorLeft":
-			collider.get_node("doorLeftSprite").set_frame(1)
-			collider.get_node("doorLeftCollision").disable = true
-		if collider.name == "doorRight":
-			collider.get_node("doorRightSprite").set_frame(1)
-			collider.get_node("doorRightCollision").disable = true
+		#if collider.name == "doorLeft":
+			#collider.get_node("doorLeftSprite").set_frame(1)
+			#collider.get_node("doorLeftCollision").disable = true
+		#if collider.name == "doorRight":
+			#collider.get_node("doorRightSprite").set_frame(1)
+			#collider.get_node("doorRightCollision").disable = true
