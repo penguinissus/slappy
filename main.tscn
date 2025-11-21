@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://6nwd07k285qv"]
+[gd_scene load_steps=55 format=4 uid="uid://6nwd07k285qv"]
 
 [ext_resource type="Script" uid="uid://4enxge038up8" path="res://scripts/grandma.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://ss7ctepvutav" path="res://images/GrannyIdle.png" id="1_78rud"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://d32qkgqjrfjnf" path="res://images/BG.png" id="8_5nrqa"]
 [ext_resource type="Texture2D" uid="uid://c3vcivt4nakgk" path="res://images/Diir.png" id="9_xm6fk"]
 [ext_resource type="Script" uid="uid://co127chq6oc32" path="res://scripts/door_left.gd" id="10_7ct82"]
+[ext_resource type="Script" uid="uid://82e7skph75xm" path="res://scripts/shitting_person.gd" id="12_6y3qq"]
+[ext_resource type="Texture2D" uid="uid://bqe6d5xst1vxb" path="res://images/Toilet.png" id="12_h2cot"]
+[ext_resource type="Texture2D" uid="uid://bg8kpv8dd8run" path="res://images/HumanOnToilet.png" id="13_6y3qq"]
 
 [sub_resource type="GDScript" id="GDScript_272bh"]
 
@@ -362,6 +365,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ct82"]
 size = Vector2(12, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2cot"]
+size = Vector2(64, 96)
+
 [node name="main3" type="Node"]
 script = SubResource("GDScript_272bh")
 
@@ -438,3 +444,16 @@ scale = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_uocqw")
 
 [node name="shittingPerson" type="RigidBody2D" parent="."]
+position = Vector2(-240, 41)
+script = ExtResource("12_6y3qq")
+
+[node name="toilet" type="Sprite2D" parent="shittingPerson"]
+texture = ExtResource("12_h2cot")
+
+[node name="person" type="Sprite2D" parent="shittingPerson"]
+position = Vector2(0, -17)
+texture = ExtResource("13_6y3qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shittingPerson"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_h2cot")
