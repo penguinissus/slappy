@@ -20,3 +20,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		# open door
+		if collider.name == "doorLeft":
+			collider.get_node("doorLeftSprite").set_frame(1)
+			collider.get_node("doorLeftCollision").set_disabled(true)
+		if collider.name == "doorRight":
+			collider.get_node("doorRightSprite").set_frame(1)
+			collider.get_node("doorRightCollision").set_disabled(true)
