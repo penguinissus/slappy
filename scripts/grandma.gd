@@ -26,6 +26,8 @@ func _physics_process(delta: float) -> void: #delta = time since the last frame
 		#end game
 		if collider.name == "fetus":
 			get_tree().change_scene_to_file("res://slapaboom.tscn")
+			var label = get_node("%Label")
+			label.show()
 		# open door
 		if collider.name == "doorLeft":
 			collider.get_node("doorLeftSprite").set_frame(1)
