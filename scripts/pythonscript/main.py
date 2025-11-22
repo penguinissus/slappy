@@ -2,6 +2,10 @@
 # Posted by Umer Farooq, modified by community. See post 'Timeline' for change history
 # Retrieved 2025-11-15, License - CC BY-SA 4.0
 
+# figure out how to connect my phone to ts as a to do
+# probably would fix all the terminal loading my phone is doing
+# also note to self: leave more time for godot tomorrow
+# and possibly find a way to shrink ts python processing time
 import websocket
 import time
 import threading

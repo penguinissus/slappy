@@ -33,15 +33,17 @@ func _physics_process(_delta: float) -> void:
 	if throwforce > 0.0:
 		print(throwforce)
 		print('yay')
+		#to do tomorrow: find out where all the other prints are
 			
 			#apply_impulse(Vector3.ZERO, theimpulse)
-		apply_impulse(Vector3(1,1,0) * throwforce * 0.5)
+		apply_impulse(Vector3(1,1,1) * throwforce * 0.5)
 
 	elif throwforce == null:
 		print('god null')
+		print('woah wtf huh hey')
 	elif throwforce <= 0:
 		if Input.is_action_just_pressed('launch'):
-			print('god adljkasldasjd')
+			print('launched')
 			apply_impulse(Vector3(1,1,0))
 
 	else:
@@ -54,7 +56,7 @@ func _physics_process(_delta: float) -> void:
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s5qhc"]
 radius = 0.32943
-height = 0.936353
+height = 0.83436
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxnbf"]
 size = Vector3(6.14508, 1, 1.70996)
@@ -94,6 +96,9 @@ func run_ts():
 	elif test == \"\":
 		print(\"empty\")
 	print(test)
+	print(\"what tf is this test bro\")
+	print(\"oh man test empty again...\")
+	print(\"figure out how to connect my phone to ts\")
 "
 
 [node name="Node3D2" type="Node3D"]
@@ -104,7 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.42582, 0)
 script = SubResource("GDScript_cxnbf")
 
 [node name="Sketchfab_Scene" parent="RigidBody3D" instance=ExtResource("1_lx1kc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.57885, 0)
+transform = Transform3D(0.646936, 0, -0.762544, 0, 1, 0, 0.762544, 0, 0.646936, 0, -5.57885, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D"]
 visible = false
@@ -112,11 +117,11 @@ mesh = SubResource("CapsuleMesh_sd88y")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0119672, -5.1296, -0.223976)
+transform = Transform3D(0.474426, 0, -0.880295, 0, 1, 0, 0.880295, 0, 0.474426, 0.0119672, -5.14264, -0.0095291)
 shape = SubResource("CapsuleShape3D_s5qhc")
 
 [node name="s" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0681908, 2.49484, 7.06001)
+transform = Transform3D(0.572861, 0, -0.819652, 0, 1, 0, 0.819652, 0, 0.572861, -5.484, 2.49484, 3.65974)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 3
@@ -126,7 +131,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0154
 shape = SubResource("BoxShape3D_cxnbf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(3.06393, 0, 0, 0, 1, 0, 0, 0, 2.65734, 0, 0, 0)
+transform = Transform3D(2.51732, 0, 1.51487, 0, 1, 0, -1.74665, 0, 2.18326, 0, 0, 0)
 mesh = SubResource("PlaneMesh_cxnbf")
 
 [node name="Timer" type="Timer" parent="."]
@@ -136,5 +141,11 @@ one_shot = true
 
 [node name="Node" type="Node" parent="."]
 script = SubResource("GDScript_1lg40")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.540817, 0.275755, -0.794655, 0.0227951, 0.939583, 0.341561, 0.840831, -0.202836, 0.501857, -2.03108, 0.40535, 1.25328)
+outline_modulate = Color(1, 1, 1, 1)
+text = "Click \"Q\" to yeet baby"
+font_size = 100
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
