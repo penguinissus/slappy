@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c07lip0redxrk"]
+[gd_scene load_steps=10 format=3 uid="uid://c07lip0redxrk"]
 
 [ext_resource type="PackedScene" uid="uid://bfnj5x1wg2e2j" path="res://low_poly_little_baby.glb" id="1_lx1kc"]
+[ext_resource type="Script" uid="uid://q6m5cgxp8png" path="res://scripts/label_3d.gd" id="2_xamdo"]
 
 [sub_resource type="GDScript" id="GDScript_sd88y"]
 script/source = "extends Node3D
@@ -44,7 +45,8 @@ func _physics_process(_delta: float) -> void:
 	elif throwforce <= 0:
 		if Input.is_action_just_pressed('launch'):
 			print('launched')
-			apply_impulse(Vector3(1,1,0))
+			ProjectSettings.set_setting(\"physics/3d/default_gravity\", 1) 
+			apply_impulse(Vector3(1,5,-4))
 
 	else:
 		print('huh')
@@ -147,5 +149,6 @@ transform = Transform3D(0.540817, 0.275755, -0.794655, 0.0227951, 0.939583, 0.34
 outline_modulate = Color(1, 1, 1, 1)
 text = "Click \"Q\" to yeet baby"
 font_size = 100
+script = ExtResource("2_xamdo")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

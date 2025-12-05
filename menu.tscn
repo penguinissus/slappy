@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=4 uid="uid://dm2nucoimren4"]
 
 [ext_resource type="Script" uid="uid://btbktxvpgxvds" path="res://button.gd" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://djnvk6q4eav2q" path="res://scripts/menu_granny.gd" id="2_4hy44"]
+[ext_resource type="Script" path="res://scripts/menu_granny.gd" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://ss7ctepvutav" path="res://images/GrannyIdle.png" id="2_ouk20"]
 [ext_resource type="Texture2D" uid="uid://d32qkgqjrfjnf" path="res://images/BG.png" id="4_4hy44"]
-[ext_resource type="Script" uid="uid://b6c2u6rh32bwk" path="res://scripts/menu_fetus.gd" id="5_l48gv"]
+[ext_resource type="Script" path="res://scripts/menu_fetus.gd" id="5_l48gv"]
 [ext_resource type="Texture2D" uid="uid://c7klya3x1w14c" path="res://images/Fetus_Crawl.png" id="5_ytr4m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mae5d"]
